@@ -7,44 +7,58 @@ class BasicoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: <Widget>[
-        _crearImagen(),
-        _crearTitulo(),
-        _crearAcciones(),
-        _crearTexto(),
-      ],
+        body: SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          _crearImagen(),
+          _crearTitulo(),
+          _crearAcciones(),
+          _crearTexto(),
+          _crearTexto(),
+          _crearTexto(),
+          _crearTexto(),
+          _crearTexto(),
+          _crearTexto(),
+        ],
+      ),
     ));
   }
 
   Widget _crearImagen() {
-    return Image(
-      image: NetworkImage(
-          'https://mediacloud.theweek.co.uk/image/private/s--oLfrZ_Cj--/v1610376627/theweek/2021/01/cottagecore%20130722-pxhere.jpg'),
+    return Container(
+      width: double.infinity,
+      child: Image(
+        image: NetworkImage(
+            'https://mediacloud.theweek.co.uk/image/private/s--oLfrZ_Cj--/v1610376627/theweek/2021/01/cottagecore%20130722-pxhere.jpg'),
+        height: 180.0,
+        fit: BoxFit.cover,
+      ),
     );
   }
 
   Widget _crearTitulo() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Casa en el bosque',
-                  style: estiloTitulo,
-                ),
-                SizedBox(height: 4.0),
-                Text('Ubicado en Amsterdam', style: estiloSubTitulo),
-              ],
+    return SafeArea(
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Casa en el bosque',
+                    style: estiloTitulo,
+                  ),
+                  SizedBox(height: 4.0),
+                  Text('Ubicado en Amsterdam', style: estiloSubTitulo),
+                ],
+              ),
             ),
-          ),
-          Icon(Icons.star, color: Colors.red, size: 30.0),
-          Text('41', style: TextStyle(fontSize: 20.0))
-        ],
+            Icon(Icons.star, color: Colors.red, size: 30.0),
+            Text('41', style: TextStyle(fontSize: 20.0))
+          ],
+        ),
       ),
     );
   }
@@ -74,11 +88,13 @@ class BasicoPage extends StatelessWidget {
   }
 
   Widget _crearTexto() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
-      child: Text(
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at rhoncus tortor. Quisque sit amet congue magna. Cras sit amet tristique mi. Maecenas mollis bibendum dolor in fringilla. Nulla ultrices eget diam et maximus. Pellentesque posuere iaculis magna et pulvinar. Sed pulvinar leo quis lacus feugiat, in finibus eros dapibus.',
-        textAlign: TextAlign.justify,
+    return SafeArea(
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 40.0),
+        child: Text(
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at rhoncus tortor. Quisque sit amet congue magna. Cras sit amet tristique mi. Maecenas mollis bibendum dolor in fringilla. Nulla ultrices eget diam et maximus. Pellentesque posuere iaculis magna et pulvinar. Sed pulvinar leo quis lacus feugiat, in finibus eros dapibus.',
+          textAlign: TextAlign.justify,
+        ),
       ),
     );
   }
