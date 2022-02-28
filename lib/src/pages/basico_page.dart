@@ -9,33 +9,77 @@ class BasicoPage extends StatelessWidget {
     return Scaffold(
         body: Column(
       children: <Widget>[
-        Image(
-          image: NetworkImage(
-              'https://mediacloud.theweek.co.uk/image/private/s--oLfrZ_Cj--/v1610376627/theweek/2021/01/cottagecore%20130722-pxhere.jpg'),
-        ),
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
-          child: Row(
-            children: <Widget>[
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      'Casa en el bosque',
-                      style: estiloTitulo,
-                    ),
-                    SizedBox(height: 4.0),
-                    Text('Ubicado en Amsterdam', style: estiloSubTitulo),
-                  ],
-                ),
-              ),
-              Icon(Icons.star, color: Colors.red, size: 30.0),
-              Text('41', style: TextStyle(fontSize: 20.0))
-            ],
-          ),
-        )
+        _crearImagen(),
+        _crearTitulo(),
+        _crearAcciones(),
+        _crearTexto(),
       ],
     ));
+  }
+
+  Widget _crearImagen() {
+    return Image(
+      image: NetworkImage(
+          'https://mediacloud.theweek.co.uk/image/private/s--oLfrZ_Cj--/v1610376627/theweek/2021/01/cottagecore%20130722-pxhere.jpg'),
+    );
+  }
+
+  Widget _crearTitulo() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  'Casa en el bosque',
+                  style: estiloTitulo,
+                ),
+                SizedBox(height: 4.0),
+                Text('Ubicado en Amsterdam', style: estiloSubTitulo),
+              ],
+            ),
+          ),
+          Icon(Icons.star, color: Colors.red, size: 30.0),
+          Text('41', style: TextStyle(fontSize: 20.0))
+        ],
+      ),
+    );
+  }
+
+  Widget _crearAcciones() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        _accion(Icons.call, 'CALL'),
+        _accion(Icons.near_me, 'ROUTE'),
+        _accion(Icons.share, 'SHARE'),
+      ],
+    );
+  }
+
+  Widget _accion(IconData icon, String texto) {
+    return Column(
+      children: <Widget>[
+        Icon(icon, color: Colors.blue),
+        SizedBox(height: 10.0),
+        Text(
+          texto,
+          style: TextStyle(fontSize: 15.0, color: Colors.blue),
+        ),
+      ],
+    );
+  }
+
+  Widget _crearTexto() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+      child: Text(
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at rhoncus tortor. Quisque sit amet congue magna. Cras sit amet tristique mi. Maecenas mollis bibendum dolor in fringilla. Nulla ultrices eget diam et maximus. Pellentesque posuere iaculis magna et pulvinar. Sed pulvinar leo quis lacus feugiat, in finibus eros dapibus.',
+        textAlign: TextAlign.justify,
+      ),
+    );
   }
 }
