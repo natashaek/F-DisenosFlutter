@@ -91,11 +91,11 @@ class BotonesPage extends StatelessWidget {
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today, size: 30.0),
+            icon: Icon(Icons.bubble_chart, size: 30.0),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today, size: 30.0),
+            icon: Icon(Icons.supervised_user_circle, size: 30.0),
             label: '',
           ),
         ],
